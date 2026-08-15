@@ -1,12 +1,19 @@
 {
   "name": "witnessd-mcp",
-  "version": "0.1.0",
-  "description": "MCP server for witnessd — have a neutral third party witness, timestamp and archive any URL or API response, with Merkle anchoring on Base. Pays per-call via x402 (your wallet) or an API key.",
+  "version": "0.1.1",
+  "description": "MCP server for witnessd \u2014 have a neutral third party witness, timestamp and archive any URL or API response, with Merkle anchoring on Base. Pays per-call via x402 (your wallet) or an API key.",
   "type": "module",
-  "bin": { "witnessd-mcp": "index.js" },
+  "bin": {
+    "witnessd-mcp": "index.js"
+  },
   "mcpName": "vip.witnessd/witnessd",
-  "repository": { "type": "git", "url": "https://github.com/jschunter/witnessd-mcp" },
-  "engines": { "node": ">=22" },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jschunter/witnessd-mcp"
+  },
+  "engines": {
+    "node": ">=22"
+  },
   "dependencies": {
     "@modelcontextprotocol/sdk": "^1.30.0",
     "@x402/evm": "^2.20.0",
@@ -14,6 +21,17 @@
     "viem": "^2.55.10",
     "zod": "^3.25.0"
   },
-  "keywords": ["mcp", "mcp-server", "modelcontextprotocol", "x402", "witness", "notary", "evidence", "attestation", "web-archive", "ai-agents"],
+  "keywords": [
+    "mcp",
+    "mcp-server",
+    "modelcontextprotocol",
+    "x402",
+    "witness",
+    "notary",
+    "evidence",
+    "attestation",
+    "web-archive",
+    "ai-agents"
+  ],
   "license": "MIT"
 }

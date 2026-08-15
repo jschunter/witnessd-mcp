@@ -1,19 +1,42 @@
 {
   "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
   "name": "vip.witnessd/witnessd",
-  "description": "Neutral third-party witness for the machine-readable web: pay cents via x402 to independently fetch, hash, timestamp and archive any URL or API response, Merkle-anchored on Base. Tools: witness_url, get_certificate, retrieve_snapshot.",
-  "repository": { "url": "https://github.com/jschunter/witnessd-mcp", "source": "github" },
-  "version": "0.1.0",
+  "description": "Neutral third-party witness: independently fetch, hash, timestamp, archive any URL or API response.",
+  "repository": {
+    "url": "https://github.com/jschunter/witnessd-mcp",
+    "source": "github"
+  },
+  "version": "0.1.1",
   "packages": [
     {
       "registryType": "npm",
       "identifier": "witnessd-mcp",
-      "version": "0.1.0",
-      "transport": { "type": "stdio" },
+      "version": "0.1.1",
+      "transport": {
+        "type": "stdio"
+      },
       "environmentVariables": [
-        { "name": "WITNESSD_URL", "isRequired": false, "isSecret": false, "format": "string", "description": "Base URL of the witnessd service (default https://witnessd.vip)" },
-        { "name": "EVM_PRIVATE_KEY", "isRequired": false, "isSecret": true, "format": "string", "description": "Wallet key used to auto-pay x402 invoices in USDC on Base (either this or WITNESSD_API_KEY)" },
-        { "name": "WITNESSD_API_KEY", "isRequired": false, "isSecret": true, "format": "string", "description": "Prepaid witnessd credit key (alternative to EVM_PRIVATE_KEY)" }
+        {
+          "name": "WITNESSD_URL",
+          "isRequired": false,
+          "isSecret": false,
+          "format": "string",
+          "description": "Base URL of the witnessd service (default https://witnessd.vip)"
+        },
+        {
+          "name": "EVM_PRIVATE_KEY",
+          "isRequired": false,
+          "isSecret": true,
+          "format": "string",
+          "description": "Wallet key used to auto-pay x402 invoices in USDC on Base (either this or WITNESSD_API_KEY)"
+        },
+        {
+          "name": "WITNESSD_API_KEY",
+          "isRequired": false,
+          "isSecret": true,
+          "format": "string",
+          "description": "Prepaid witnessd credit key (alternative to EVM_PRIVATE_KEY)"
+        }
       ]
     }
   ]

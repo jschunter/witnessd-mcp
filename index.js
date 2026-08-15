@@ -1,13 +1,13 @@
 #!/usr/bin/env node
 // witnessd MCP server. Env:
-//   WITNESSD_URL       base URL of the witnessd service (default: https://witnessd.example)
+//   WITNESSD_URL       base URL of the witnessd service (default: https://witnessd.vip)
 //   WITNESSD_API_KEY   prepaid credit key  (one payment door)
 //   EVM_PRIVATE_KEY    0x… wallet key for x402 auto-pay in USDC (the other door)
 import { McpServer } from '@modelcontextprotocol/sdk/server/mcp.js';
 import { StdioServerTransport } from '@modelcontextprotocol/sdk/server/stdio.js';
 import { z } from 'zod';
 
-const BASE = (process.env.WITNESSD_URL || 'https://witnessd.example').replace(/\/$/, '');
+const BASE = (process.env.WITNESSD_URL || 'https://witnessd.vip').replace(/\/$/, '');
 const API_KEY = process.env.WITNESSD_API_KEY || '';
 const PK = process.env.EVM_PRIVATE_KEY || '';
 
@@ -30,7 +30,7 @@ async function call(method, path, body) {
   return data;
 }
 
-const server = new McpServer({ name: 'witnessd', version: '0.1.0' });
+const server = new McpServer({ name: 'witnessd', version: '0.1.1' });
 
 server.tool(
   'witness_url',
