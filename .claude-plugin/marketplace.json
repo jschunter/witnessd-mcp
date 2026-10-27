@@ -1,0 +1,12 @@
+{
+  "name": "witnessd",
+  "description": "witnessd: a neutral third-party witness for the machine-readable web.",
+  "owner": { "name": "witnessd" },
+  "plugins": [
+    {
+      "name": "witnessd",
+      "source": "./plugin",
+      "description": "Skill + MCP server: tamper-evident, on-chain-anchored evidence of what a URL or API returned, $0.02 per snapshot via x402."
+    }
+  ]
+}
