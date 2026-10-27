@@ -22,7 +22,7 @@ You'll be asked for a wallet key, or a witnessd API key as an alternative. Both 
 
 ## What it runs, sends and stores
 
-- **Runs:** the npm package `witnessd-mcp` version 0.1.1, started with `npx` on your machine.
+- **Runs:** the npm package `witnessd-mcp` version 0.1.1, started with `npx` on your machine. The skill also includes `scripts/verify.mjs`, an offline checker that reads a snapshot record you give it and makes no network calls.
 - **Sends:** only to https://witnessd.vip. When Claude uses a tool, the server sends the URL to witness, or the snapshot id to look up. witnessd then fetches that public URL from its own server.
 - **Payments:** each paid call is signed on your machine with your wallet key and sent to witnessd.vip, which settles it in USDC on Base through the x402 payment facilitator. Your private key never leaves your machine. If you use an API key instead, it is sent to witnessd.vip with each call.
 - **Stores:** the plugin keeps only your two optional settings, in Claude Code's secure storage. witnessd keeps the content it fetched for each snapshot and publishes the certificate (hash, timestamp, signature, Merkle proof, Base transaction). Certificates are public; archived content goes only to paying requesters.
