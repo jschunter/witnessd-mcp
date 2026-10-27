@@ -87,16 +87,16 @@ The first response is `402 Payment Required`, with the x402 invoice in the `Paym
 
 Use this when someone hands you a certificate or snapshot id, or before you rely on one.
 
-1. Get the certificate: the `get_certificate` tool, or a free `GET https://witnessd.vip/api/certificate/<id>`. Save the JSON as `cert.json`.
-2. Run the checker bundled with this skill, `scripts/verify.mjs` (plain Node 18+, no dependencies, short readable source):
+1. Get the record: the `get_certificate` tool, or a free `GET https://witnessd.vip/api/certificate/<id>`. Save the JSON as `witness.json`.
+2. Run the offline checker bundled with this skill, `scripts/verify.mjs` (plain Node 18+, no dependencies, no network calls, short readable source). Run it from this skill's folder, or give the full path to the script:
 
 ```bash
-node scripts/verify.mjs cert.json
+node scripts/verify.mjs witness.json
 ```
 
-Run it from this skill's folder, or give the full path to the script.
+3. Do the on-chain step it prints: look up that transaction on Base (any block explorer, or `eth_getTransactionByHash` on any Base node) and confirm its input data equals the value shown.
 
-Expect `PASS` lines for the leaf hash, the Ed25519 signature, the Merkle proof, and, once anchored, the on-chain calldata. To check by hand:
+Expect `PASS` lines for the leaf hash, the Ed25519 signature and the Merkle proof. Until the next hourly batch there is no proof yet; fetch the record again later. To check by hand:
 
 - `leaf_hash` = SHA-256 of the manifest serialized as JSON with keys sorted and no whitespace.
 - Fold `leaf_hash` through `anchor.proof` (each step: SHA-256 of the two hashes concatenated, ordered by `side`) to get `anchor.merkle_root`.
