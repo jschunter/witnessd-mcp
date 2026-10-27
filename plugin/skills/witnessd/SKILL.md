@@ -87,11 +87,14 @@ The first response is `402 Payment Required`, with the x402 invoice in the `Paym
 
 Use this when someone hands you a certificate or snapshot id, or before you rely on one.
 
+1. Get the certificate: the `get_certificate` tool, or a free `GET https://witnessd.vip/api/certificate/<id>`. Save the JSON as `cert.json`.
+2. Run the checker bundled with this skill, `scripts/verify.mjs` (plain Node 18+, no dependencies, short readable source):
+
 ```bash
-curl -s https://witnessd.vip/verify.js -o verify.mjs
-curl -s https://witnessd.vip/api/certificate/<id> -o cert.json
-node verify.mjs cert.json
+node scripts/verify.mjs cert.json
 ```
+
+Run it from this skill's folder, or give the full path to the script.
 
 Expect `PASS` lines for the leaf hash, the Ed25519 signature, the Merkle proof, and, once anchored, the on-chain calldata. To check by hand:
 
