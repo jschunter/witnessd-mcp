@@ -1,6 +1,6 @@
 {
   "name": "witnessd",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "displayName": "witnessd: neutral web witness",
   "description": "Teaches Claude when to get tamper-evident, third-party evidence of what a public URL or API returned, and connects the witnessd MCP server ($0.02 per snapshot via x402 USDC on Base, Merkle-anchored on-chain, verifiable by anyone).",
   "author": { "name": "witnessd" },
@@ -11,7 +11,7 @@
   "mcpServers": {
     "witnessd": {
       "command": "npx",
-      "args": ["-y", "witnessd-mcp"],
+      "args": ["-y", "witnessd-mcp@0.1.1"],
       "env": {
         "WITNESSD_URL": "https://witnessd.vip",
         "EVM_PRIVATE_KEY": "${user_config.evm_private_key}",
