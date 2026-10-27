@@ -1,0 +1,38 @@
+{
+  "name": "witnessd",
+  "version": "1.0.0",
+  "displayName": "witnessd: neutral web witness",
+  "description": "Teaches Claude when to get tamper-evident, third-party evidence of what a public URL or API returned, and connects the witnessd MCP server ($0.02 per snapshot via x402 USDC on Base, Merkle-anchored on-chain, verifiable by anyone).",
+  "author": { "name": "witnessd" },
+  "homepage": "https://witnessd.vip",
+  "repository": "https://github.com/jschunter/witnessd-mcp",
+  "license": "MIT",
+  "keywords": ["evidence", "notary", "witness", "timestamp", "x402", "mcp", "agent-payments", "audit"],
+  "mcpServers": {
+    "witnessd": {
+      "command": "npx",
+      "args": ["-y", "witnessd-mcp"],
+      "env": {
+        "WITNESSD_URL": "https://witnessd.vip",
+        "EVM_PRIVATE_KEY": "${user_config.evm_private_key}",
+        "WITNESSD_API_KEY": "${user_config.witnessd_api_key}"
+      }
+    }
+  },
+  "userConfig": {
+    "evm_private_key": {
+      "type": "string",
+      "title": "Wallet private key (USDC on Base)",
+      "description": "Key of a SMALL dedicated wallet holding a few dollars of USDC on Base. Used only to pay witnessd per call ($0.02 witness, $0.05 retrieve). Leave empty if you use an API key instead, or for free certificate lookups only.",
+      "sensitive": true,
+      "default": ""
+    },
+    "witnessd_api_key": {
+      "type": "string",
+      "title": "witnessd API key (optional alternative)",
+      "description": "Prepaid witnessd credit key (starts with wk_). Use this OR the wallet key. Leave empty if unused.",
+      "sensitive": true,
+      "default": ""
+    }
+  }
+}
