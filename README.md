@@ -6,6 +6,18 @@ Give your agent the ability to create tamper-evident evidence: witnessd independ
 
 Use it before transacting with a counterparty ("witness their published price/terms"), before acting on third-party data ("witness what the API returned"), or whenever a dispute might later hinge on *what a URL said at a moment in time*.
 
+## Quick install
+
+| You use | Run this |
+|---|---|
+| **Claude Code** (skill + MCP server in one step) | `/plugin install witnessd --marketplace jschunter/witnessd-mcp` |
+| **Any agent with Agent Skills** (Cursor, Codex, Copilot, Gemini CLI and others) | `npx skills add jschunter/witnessd-mcp` |
+| **Any MCP client**, MCP server only | `npx -y witnessd-mcp` (config below) |
+
+The **skill** ([`plugin/skills/witnessd/SKILL.md`](plugin/skills/witnessd/SKILL.md)) teaches an agent *when* a neutral witness is worth two cents: before paying an unfamiliar seller, before acting on third-party data, or when asked to prove what a page said. It also sets spending rules: at most 5 paid calls per task without approval, a one-line report of each call, and no paid retries in a loop. The **MCP server** gives the agent the tools.
+
+On older Claude Code versions, run `/plugin marketplace add jschunter/witnessd-mcp` and then `/plugin install witnessd@witnessd`.
+
 ## Tools
 
 | Tool | Price | What it does |
